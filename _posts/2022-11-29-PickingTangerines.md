@@ -2,7 +2,7 @@
 title: 프로그래머스 lv2 귤 고르기
 ---
 
-```
+```java
 public int solution(int k, int[] tangerine) {
     int answer = 0;
 
