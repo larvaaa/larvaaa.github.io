@@ -2,6 +2,9 @@
 title: 프로그래머스 lv2 무인도 여행
 ---
 
+dfs를 이용하는 문제
+
+
 ```java
 String[][] Maps;
 boolean[][] Visit;
