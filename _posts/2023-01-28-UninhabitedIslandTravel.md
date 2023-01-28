@@ -9,7 +9,6 @@ dfs를 이용하는 문제
 String[][] Maps;
 boolean[][] Visit;
 List<Integer> Answer;
-int sum;
 
 public int[] solution(String[] maps) {
 
@@ -31,8 +30,8 @@ public int[] solution(String[] maps) {
       for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
           if(!Visit[i][j] && !Maps[i][j].equals("X")) {
-            sum = Integer.parseInt(Maps[i][j]);
-            dfs(i, j, n, m);
+            int sum = Integer.parseInt(Maps[i][j]);
+            sum = dfs(sum, i, j, n, m);
             Answer.add(sum);
           }
         }
@@ -48,7 +47,7 @@ public int[] solution(String[] maps) {
   }
 
 
-void dfs(int x, int y, int n, int m) {
+int dfs(int sum, int x, int y, int n, int m) {
 
   Visit[x][y] = true;
 
@@ -63,11 +62,10 @@ void dfs(int x, int y, int n, int m) {
     if(nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
 
     if(!Visit[nx][ny] && !Maps[nx][ny].equals("X")) {
-      sum+=Integer.parseInt(Maps[nx][ny]);
-      dfs(nx, ny, n, m);
+      sum = dfs(sum + Integer.parseInt(Maps[nx][ny]), nx, ny, n, m);
     }
 
   }
-
+  return sum;
 }
 ```
